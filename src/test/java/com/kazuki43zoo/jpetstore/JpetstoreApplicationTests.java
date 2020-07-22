@@ -1,5 +1,5 @@
 /*
- *    Copyright 2016-2019 the original author or authors.
+ *    Copyright 2016-2020 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package com.kazuki43zoo.jpetstore;
 
 import com.codeborne.selenide.Browsers;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.After;
@@ -63,11 +64,16 @@ public class JpetstoreApplicationTests {
 
 	@Before
 	public void setupSelenide() {
-		browser = Browsers.CHROME;
+		/*browser = Browsers.CHROME;
 		headless = true;
 		timeout = TimeUnit.SECONDS.toMillis(10);
 		baseUrl = String.format("http://localhost:%d", port);
-		fastSetValue = true;
+		fastSetValue = true;*/
+
+		Configuration.browser = "chrome";
+		Configuration.browserSize = "1920x1080";
+		Configuration.holdBrowserOpen = true;
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Usuario\\.m2\\repository\\webdriver\\chromedriver\\win32\\84.0.4147.30\\chromedriver.exe");
 	}
 
 	@After
@@ -80,7 +86,10 @@ public class JpetstoreApplicationTests {
 
 	@Test
 	public void testOrder() {
-
+		System.out.println("Vamos a entrar a Google");
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Usuario\\.m2\\repository\\webdriver\\chromedriver\\win32\\84.0.4147.30\\chromedriver.exe");
+		//System.setProperty("selenide.browser", "Chrome");
+		//open("https://www.google.com.pe");
 		// Open the home page
 		open("/");
 		assertThat(title()).isEqualTo("JPetStore Demo");
