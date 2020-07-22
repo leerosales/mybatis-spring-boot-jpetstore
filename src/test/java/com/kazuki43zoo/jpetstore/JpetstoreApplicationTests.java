@@ -64,16 +64,17 @@ public class JpetstoreApplicationTests {
 
 	@Before
 	public void setupSelenide() {
+		Configuration.browser = "chrome";
+		Configuration.browserSize = "1920x1080";
+		Configuration.holdBrowserOpen = true;
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Usuario\\.m2\\repository\\webdriver\\chromedriver\\win32\\84.0.4147.30\\chromedriver.exe");
+
 		/*browser = Browsers.CHROME;
 		headless = true;
 		timeout = TimeUnit.SECONDS.toMillis(10);
 		baseUrl = String.format("http://localhost:%d", port);
 		fastSetValue = true;*/
 
-		Configuration.browser = "chrome";
-		Configuration.browserSize = "1920x1080";
-		Configuration.holdBrowserOpen = true;
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Usuario\\.m2\\repository\\webdriver\\chromedriver\\win32\\84.0.4147.30\\chromedriver.exe");
 	}
 
 	@After
