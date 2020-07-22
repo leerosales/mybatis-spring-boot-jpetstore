@@ -25,6 +25,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JpetstoreApplication {
 
 	public static void main(String[] args) {
+		if(true)
 		SpringApplication.run(JpetstoreApplication.class, args);
 	}
 
