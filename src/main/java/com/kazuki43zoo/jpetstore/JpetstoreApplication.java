@@ -26,7 +26,7 @@ public class JpetstoreApplication {
 
 	public static void main(String[] args) {
 		if(true)
-		SpringApplication.run(JpetstoreApplication.class, args);
+			SpringApplication.run(JpetstoreApplication.class, args);
 	}
 
 }
