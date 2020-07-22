@@ -73,7 +73,7 @@ public class JpetstoreApplicationTests {
 		headless = true;
 		timeout = TimeUnit.SECONDS.toMillis(10);
 		baseUrl = String.format("http://localhost:%d", port);
-		fastSetValue = true;;;*/
+		fastSetValue = true;;;;*/
 
 	}
 
