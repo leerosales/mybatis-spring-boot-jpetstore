@@ -1,0 +1,44 @@
+/*
+ *    Copyright 2016-2020 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.ScreenShooter;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.runner.RunWith;
+import org.springframework.boot.web.server.LocalServerPort;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(plugin = {"pretty",
+        "html:target/cucumber",
+        "json:target/cucumber.json"})
+public class Runner {
+
+    @LocalServerPort
+    private int port;
+
+    @Rule
+    public ScreenShooter screenShooter = ScreenShooter.failedTests();
+
+    @Before
+    public void setupSelenide() {
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        Configuration.holdBrowserOpen = true;
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Usuario\\.m2\\repository\\webdriver\\chromedriver\\win32\\84.0.4147.30\\chromedriver.exe");
+    }
+}
